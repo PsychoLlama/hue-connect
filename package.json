@@ -1,0 +1,22 @@
+{
+  "name": "hue-connect",
+  "version": "0.1.0",
+  "description": "Discovers and connects with Philips Hue bridges",
+  "main": "dist/index.js",
+  "repository": "https://github.com/PsychoLlama/hue-connect",
+  "author": "Jesse Gibson <Jesse_Gibson@me.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src/ -d dist/",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-es2015-node": "^6.1.1",
+    "eslint": "^3.19.0",
+    "eslint-config-llama": "^3.0.0",
+    "jest": "^19.0.2"
+  }
+}
