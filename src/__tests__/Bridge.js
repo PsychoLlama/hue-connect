@@ -38,9 +38,9 @@ describe('Bridge', () => {
     expect(fail).toThrow(/ip/i);
   });
 
-  describe('ping()', () => {
+  describe('connect()', () => {
     it('sends the registration details', async () => {
-      await bridge.ping({ appName, deviceName });
+      await bridge.connect({ appName, deviceName });
 
       expect(axios.post).toHaveBeenCalledWith(`http://${ip}/api/`, {
         devicetype: `${appName}#${deviceName}`,
@@ -49,7 +49,7 @@ describe('Bridge', () => {
 
     it('throws if the app name is omitted', async () => {
       const spy = jest.fn();
-      await bridge.ping({ deviceName }).catch(spy);
+      await bridge.connect({ deviceName }).catch(spy);
 
       expect(spy).toHaveBeenCalled();
 
@@ -60,7 +60,7 @@ describe('Bridge', () => {
 
     it('throws if the device name is omitted', async () => {
       const spy = jest.fn();
-      await bridge.ping({ appName }).catch(spy);
+      await bridge.connect({ appName }).catch(spy);
 
       expect(spy).toHaveBeenCalled();
 
@@ -78,7 +78,7 @@ describe('Bridge', () => {
       const spy = jest.fn();
       axios.post.mockReturnValueOnce(errors);
 
-      await bridge.ping({ appName, deviceName }).catch(spy);
+      await bridge.connect({ appName, deviceName }).catch(spy);
 
       expect(spy).toHaveBeenCalledWith(expect.any(Error));
       const [result] = spy.mock.calls[0];
@@ -96,7 +96,7 @@ describe('Bridge', () => {
 
       axios.post.mockReturnValue(response);
 
-      const result = await bridge.ping({ appName, deviceName });
+      const result = await bridge.connect({ appName, deviceName });
 
       expect(result).toEqual(success.username);
     });

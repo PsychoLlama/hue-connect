@@ -27,7 +27,7 @@ export default class Bridge {
    * @param  {String} registration.deviceName - The device's name.
    * @return {Promise} - Resolves when the request is acknowledged.
    */
-  async ping ({ appName, deviceName }) {
+  async connect ({ appName, deviceName }) {
     invariant(appName, 'App name required, but was not given.');
     invariant(deviceName, 'Device name required, but was not given.');
 
