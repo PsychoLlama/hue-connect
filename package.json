@@ -22,6 +22,9 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "babel-plugin-rewire": "^1.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "hue-bridge-discovery": "^1.1.2",
     "invariant": "^2.2.2"
   }
 }
