@@ -19,5 +19,9 @@
     "eslint": "^3.19.0",
     "eslint-config-llama": "^3.0.0",
     "jest": "^19.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "invariant": "^2.2.2"
   }
 }
