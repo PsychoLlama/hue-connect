@@ -9,7 +9,8 @@
   "scripts": {
     "build": "babel src/ -d dist/",
     "test": "jest",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "prepublish": "npm run build -- --ignore '__tests__'"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
