@@ -1,6 +1,6 @@
 {
   "name": "hue-connect",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Discovers and connects with Philips Hue bridges",
   "main": "dist/index.js",
   "repository": "https://github.com/PsychoLlama/hue-connect",
