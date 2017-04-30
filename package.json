@@ -17,6 +17,8 @@
     "babel-eslint": "^7.2.3",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-rewire": "^1.1.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-preset-es2015-node": "^6.1.1",
     "eslint": "^3.19.0",
     "eslint-config-llama": "^3.0.0",
@@ -24,8 +26,6 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
-    "babel-plugin-rewire": "^1.1.0",
-    "babel-plugin-transform-class-properties": "^6.24.1",
     "hue-bridge-discovery": "^1.1.2",
     "invariant": "^2.2.2"
   }
