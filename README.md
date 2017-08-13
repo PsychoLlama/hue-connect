@@ -29,7 +29,13 @@ const discover = require('hue-connect')
 ```
 
 ## API
-There are two functions exported from this module:
+The easiest way to use this module is using the `hue-register` command:
+
+```sh
+$ hue-register my-app-name > auth.json
+```
+
+Otherwise there's the programmatic approach. There are two functions exported from this module:
 
 - `discover(callback)`
 - `Bridge`
