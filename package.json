@@ -10,7 +10,7 @@
     "hue-register": "./dist/bin/hue-register.js"
   },
   "scripts": {
-    "build": "babel src/ -d dist/",
+    "build": "babel src/ -d dist/ --ignore __tests__",
     "test": "jest",
     "lint": "eslint src",
     "prepublish": "npm run build -- --ignore '__tests__'"
@@ -30,5 +30,10 @@
     "axios": "^0.16.1",
     "hue-bridge-discovery": "^1.1.2",
     "invariant": "^2.2.2"
+  },
+  "jest": {
+    "testPathIgnorePatterns": [
+      "<rootDir>/dist/"
+    ]
   }
 }
