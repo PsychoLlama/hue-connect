@@ -4,10 +4,5 @@
     "transform-object-rest-spread",
     "transform-class-properties",
     "transform-async-to-generator"
-  ],
-  "env": {
-    "test": {
-      "plugins": ["rewire"]
-    }
-  }
+  ]
 }
