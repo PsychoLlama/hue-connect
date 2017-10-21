@@ -41,12 +41,12 @@ Otherwise there's the programmatic approach. There are two functions exported fr
 - `Bridge`
 
 ### Discovery
-The main export from `hue-connect` is a function. Pass it a callback and it'll invoke it with every bridge it finds.
+The main export from `hue-connect` is a function. Pass it a callback and it'll call it with every bridge it can find.
 
 ```js
 import discover from 'hue-connect'
 
-const search = discover((bridge) => {
+const search = discover(bridge => {
   console.log('Found bridge:', bridge)
 })
 ```
@@ -54,7 +54,7 @@ const search = discover((bridge) => {
 Once you no longer care about finding new bridges (like once you've attained a token), stop the bridge search using the `.cancel()` method.
 
 ```js
-const search = discover((bridge) => {})
+const search = discover(bridge => {})
 
 search.cancel()
 ```
@@ -94,7 +94,7 @@ Assuming the user has pressed the button, the promise will resolve with your shi
 bridge.connect({
   appName: 'illumination',
   deviceName: 'bob',
-}).then((token) => {
+}).then(token => {
   console.log('Awesome sauce!', token)
 })
 ```
@@ -102,7 +102,7 @@ bridge.connect({
 Otherwise the promise will reject horribly.
 
 ```js
-bridge.connect({ appName, deviceName }).catch((error) => {
+bridge.connect({ appName, deviceName }).catch(error => {
   console.log('Oh noes:', error.message)
   console.log('Secret error code:', error.code)
 })
@@ -111,10 +111,9 @@ bridge.connect({ appName, deviceName }).catch((error) => {
 All the error codes are in [this giant table](https://www.developers.meethue.com/documentation/error-messages), but you might need to create a hue account to see 'em. The most common is `101` which means the user is lazy and just hasn't pressed the button.
 
 ## Examples
-So you've seen all the docs. Here's some examples to tie it all together.
+So you've seen all the docs. Here's an example to tie it all together.
 
-### Discovery
-Finds all the local bridges and pings them once a second until the user presses the bridge button.
+This'll find all the local bridges and ping them once a second until the user presses the bridge button.
 
 ```js
 const discover = require('hue-connect')
@@ -124,8 +123,8 @@ const search = discover(getToken)
 async function getToken (bridge) {
   try {
     const token = await bridge.connect({
-      appName: 'no-app-name',
-      deviceName: 'computrz',
+      appName: 'enlightened',
+      deviceName: 'bad-pun-generator',
     })
 
     console.log('Success!')
@@ -137,6 +136,7 @@ async function getToken (bridge) {
 
     // Stop searching for new bridges.
     search.cancel()
+    process.exit(0)
   } catch (error) {
 
     // It's some weird error.
