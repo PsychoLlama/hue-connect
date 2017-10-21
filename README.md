@@ -11,11 +11,7 @@ Because bridge discovery is weird and so is attaining an API token.
 It's published on npm.
 
 ```sh
-# If you love speed
-yarn add hue-connect
-
-# Otherwise...
-npm install --save hue-connect
+$ npm install --save hue-connect
 ```
 
 Now you can use it in your project. It works with ES Module syntax or plain ol' `require`.
