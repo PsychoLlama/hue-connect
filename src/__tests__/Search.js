@@ -1,13 +1,16 @@
-/* eslint-disable require-jsdoc, no-underscore-dangle, camelcase */
+/* eslint-disable require-jsdoc, camelcase */
+import DiscoveryService from 'hue-bridge-discovery';
+
 import discover from '../Search';
 import Bridge from '../Bridge';
 
+jest.mock('hue-bridge-discovery');
+
 describe('Bridge search', () => {
   let search, callback, service;
-  const eventName = 'event constant';
 
   beforeEach(() => {
-    const DiscoveryService = jest.fn(() => {
+    DiscoveryService.mockImplementation(() => {
       service = {
         removeListener: jest.fn(),
         start: jest.fn(),
@@ -18,15 +21,8 @@ describe('Bridge search', () => {
       return service;
     });
 
-    DiscoveryService.EVENT_HUE_DISCOVERED = eventName;
-
-    discover.__Rewire__('DiscoveryService', DiscoveryService);
     callback = jest.fn();
     search = discover(callback);
-  });
-
-  afterEach(() => {
-    discover.__ResetDependency__('DiscoveryService');
   });
 
   it('returns a search', () => {
@@ -37,7 +33,7 @@ describe('Bridge search', () => {
   it('creates a new bridge search', () => {
     expect(service).toBeTruthy();
     expect(service.on).toHaveBeenCalledWith(
-      eventName,
+      DiscoveryService.EVENT_HUE_DISCOVERED,
       expect.any(Function)
     );
     expect(service.start).toHaveBeenCalled();
@@ -49,7 +45,7 @@ describe('Bridge search', () => {
     search.cancel();
 
     expect(service.removeListener).toHaveBeenCalledWith(
-      eventName,
+      DiscoveryService.EVENT_HUE_DISCOVERED,
       expect.any(Function)
     );
 
