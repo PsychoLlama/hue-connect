@@ -7,21 +7,18 @@ import Bridge from './Bridge';
  * @class  BridgeSearch
  */
 export class BridgeSearch {
-
   /**
    * @param  {Function} callback - Invoked for each discovered bridge.
    */
-  constructor (callback) {
+  constructor(callback) {
     invariant(
       typeof callback === 'function',
-      `BridgeSearch(...) expected a callback, was given "${callback}".`);
+      `BridgeSearch(...) expected a callback, was given "${callback}".`
+    );
 
     const search = new DiscoveryService();
 
-    search.on(
-      DiscoveryService.EVENT_HUE_DISCOVERED,
-      this._createBridge
-    );
+    search.on(DiscoveryService.EVENT_HUE_DISCOVERED, this._createBridge);
 
     search.start();
 
@@ -34,17 +31,17 @@ export class BridgeSearch {
    * @param  {Object} discovery.address - Bridge IP address.
    * @return {undefined}
    */
-  _createBridge = (discovery) => {
+  _createBridge = discovery => {
     const bridge = new Bridge({ ip: discovery.address });
 
     this._callback(bridge);
-  }
+  };
 
   /**
    * Cancels the search.
    * @return {undefined}
    */
-  cancel () {
+  cancel() {
     this._search.removeListener(
       DiscoveryService.EVENT_HUE_DISCOVERED,
       this._createBridge
@@ -58,6 +55,6 @@ export class BridgeSearch {
  * Instantiates a new discovery service.
  * @return {BridgeSearch} - Search for the bridge.
  */
-export default function locateHueBridges (...args) {
+export default function locateHueBridges(...args) {
   return new BridgeSearch(...args);
 }

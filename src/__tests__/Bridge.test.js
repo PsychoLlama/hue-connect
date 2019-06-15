@@ -11,11 +11,15 @@ describe('Bridge', () => {
   beforeEach(() => {
     axios = {
       get: jest.fn(async () => ({})).mockReturnValue({ data: [] }),
-      post: jest.fn(async () => ({})).mockReturnValue({
-        data: [{
-          success: { username: 'bob' },
-        }],
-      }),
+      post: jest
+        .fn(async () => ({}))
+        .mockReturnValue({
+          data: [
+            {
+              success: { username: 'bob' },
+            },
+          ],
+        }),
     };
 
     ip = '192.168.1.42';
@@ -53,7 +57,7 @@ describe('Bridge', () => {
 
       expect(spy).toHaveBeenCalled();
 
-      const {message} = spy.mock.calls[0][0];
+      const { message } = spy.mock.calls[0][0];
       expect(message).toMatch(/app/i);
       expect(message).toMatch(/name/i);
     });
@@ -64,7 +68,7 @@ describe('Bridge', () => {
 
       expect(spy).toHaveBeenCalled();
 
-      const {message} = spy.mock.calls[0][0];
+      const { message } = spy.mock.calls[0][0];
       expect(message).toMatch(/device/i);
       expect(message).toMatch(/name/i);
     });

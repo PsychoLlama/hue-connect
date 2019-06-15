@@ -22,12 +22,12 @@ const defer = () => {
     reject = rej;
   });
 
-  return {resolve, reject, promise};
+  return { resolve, reject, promise };
 };
 
 describe('Hue register', () => {
   const [register] = discover.mock.calls[0];
-  const {cancel} = discover();
+  const { cancel } = discover();
   const createConnectionFailError = () => {
     const error = new Error('Testing failed bridge authentication.');
     error.code = 101;
