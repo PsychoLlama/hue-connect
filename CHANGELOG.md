@@ -6,6 +6,9 @@ The `hue-connect` package adheres to [semver](http://semver.org/) and follows [t
 ### Removed
 - Drops support for node versions < 8.0.0.
 
+### Security
+- Upgrades axios to resolve an unspecified security alert.
+
 ## v0.2.1
 ### Fixed
 - `hue-register` would never terminate if more than one bridge was found (issue #2).
