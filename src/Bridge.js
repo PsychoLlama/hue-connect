@@ -6,13 +6,12 @@ import axiosDefault from 'axios';
  * @class
  */
 export default class Bridge {
-
   /**
    * @param {Object} config - Various settings.
    * @param {String} ip - Bridge IP address.
    * @param {Object} [axios] - Axios HTTP interface.
    */
-  constructor ({ ip, axios = axiosDefault }) {
+  constructor({ ip, axios = axiosDefault }) {
     invariant(ip, `Bridge(...) expected an IP, was given "${ip}".`);
 
     this.url = `http://${ip}/api/`;
@@ -27,12 +26,12 @@ export default class Bridge {
    * @param  {String} registration.deviceName - The device's name.
    * @return {Promise} - Resolves when the request is acknowledged.
    */
-  async connect ({ appName, deviceName }) {
+  async connect({ appName, deviceName }) {
     invariant(appName, 'App name required, but was not given.');
     invariant(deviceName, 'Device name required, but was not given.');
 
     const devicetype = `${appName}#${deviceName}`;
-    const registration = {devicetype};
+    const registration = { devicetype };
 
     const { data } = await this._axios.post(this.url, registration);
     const [result = {}] = data;

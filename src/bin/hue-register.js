@@ -16,7 +16,6 @@ const printRegistration = registration => {
 
   // eslint-disable-next-line no-process-env
   if (process.env.NODE_ENV !== 'test') {
-
     // eslint-disable-next-line no-console
     console.log(serialized);
   }
@@ -25,27 +24,27 @@ const printRegistration = registration => {
 const handshakes = Object.create(null);
 
 // Cancelling unnecessary scheduled retries makes the search snappier.
-const cancelAllRetries = () => Object.keys(handshakes).forEach(key => {
-  const handshake = handshakes[key];
+const cancelAllRetries = () =>
+  Object.keys(handshakes).forEach(key => {
+    const handshake = handshakes[key];
 
-  clearTimeout(handshake.retry);
-  handshake.terminated = true;
-});
+    clearTimeout(handshake.retry);
+    handshake.terminated = true;
+  });
 
-const search = discover(async function register (bridge) {
-  const handshake = handshakes[bridge.ip] || {bridge, retry: null};
+const search = discover(async function register(bridge) {
+  const handshake = handshakes[bridge.ip] || { bridge, retry: null };
   handshakes[bridge.ip] = handshake;
 
   try {
-    const token = await bridge.connect({appName, deviceName});
+    const token = await bridge.connect({ appName, deviceName });
 
     // Send the result to stdout.
-    printRegistration({token, ip: bridge.ip});
+    printRegistration({ token, ip: bridge.ip });
 
     search.cancel();
     cancelAllRetries();
   } catch (error) {
-
     // No idea what just happened.
     if (error.code !== 101) {
       throw error;
