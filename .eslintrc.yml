@@ -11,6 +11,9 @@ env:
   node: true
   es6: true
 
+parserOptions:
+  sourceType: module
+
 overrides:
   - files: '**/__tests__/*.test.js'
     env:
