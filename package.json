@@ -10,10 +10,10 @@
     "hue-register": "./dist/bin/hue-register.js"
   },
   "scripts": {
-    "build": "babel src/ -d dist/ --ignore '**/__tests__'",
-    "test": "jest",
-    "lint": "eslint src",
-    "prepublishOnly": "yarn build"
+    "prepare": "babel src/ -d dist/ --ignore '**/__tests__'",
+    "test:lint": "eslint src --color",
+    "test:unit": "jest --color",
+    "test": "./run-tests"
   },
   "browserslist": [
     "node >= 10"

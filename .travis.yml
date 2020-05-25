@@ -2,9 +2,7 @@ language: node_js
 node_js:
 - 10
 - 12
-script:
-- yarn test
-- yarn lint
+script: yarn test
 deploy:
   provider: npm
   email: JesseTheGibson@gmail.com
