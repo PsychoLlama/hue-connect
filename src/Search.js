@@ -31,7 +31,7 @@ export class BridgeSearch {
    * @param  {Object} discovery.address - Bridge IP address.
    * @return {undefined}
    */
-  _createBridge = discovery => {
+  _createBridge = (discovery) => {
     const bridge = new Bridge({ ip: discovery.address });
 
     this._callback(bridge);

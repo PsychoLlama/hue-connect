@@ -11,7 +11,7 @@ const deviceName = hostname()
   .replace(/[^a-z0-9 ]/gi, '')
   .replace(/ +/g, '-');
 
-const printRegistration = registration => {
+const printRegistration = (registration) => {
   const serialized = JSON.stringify(registration, null, 2);
 
   // eslint-disable-next-line no-process-env
@@ -25,7 +25,7 @@ const handshakes = Object.create(null);
 
 // Cancelling unnecessary scheduled retries makes the search snappier.
 const cancelAllRetries = () =>
-  Object.keys(handshakes).forEach(key => {
+  Object.keys(handshakes).forEach((key) => {
     const handshake = handshakes[key];
 
     clearTimeout(handshake.retry);
