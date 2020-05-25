@@ -1,7 +1,7 @@
 # Hue-connect
 *Easy setup for Philips Hue apps*
 
-[![Travis branch](https://img.shields.io/travis/PsychoLlama/hue-connect/master.svg?style=flat-square)](https://travis-ci.org/PsychoLlama/hue-connect)
+[![GitHub workflow](https://img.shields.io/github/workflow/status/PsychoLlama/hue-connect/Continuous%20Integration/master?style=flat-square)](https://github.com/PsychoLlama/hue-connect/actions?query=workflow%3A%22Continuous+Integration%22)
 [![npm](https://img.shields.io/npm/v/hue-connect.svg?style=flat-square)](https://www.npmjs.com/package/hue-connect)
 
 ## Why
