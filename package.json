@@ -10,7 +10,7 @@
     "hue-register": "./dist/bin/hue-register.js"
   },
   "scripts": {
-    "prepack": "babel src/ -d dist/ --ignore '**/__tests__'",
+    "prepare": "babel src/ -d dist/ --ignore '**/__tests__'",
     "test:lint": "eslint src --color",
     "test:unit": "jest --color",
     "test": "./run-tests"

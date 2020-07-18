@@ -18,6 +18,6 @@ jobs:
         with:
           node-version: ${{ matrix.node_version }}
       - name: Install libraries
-        run: yarn install
+        run: yarn install --color
       - name: Run tests
-        run: yarn test
+        run: yarn -s test
