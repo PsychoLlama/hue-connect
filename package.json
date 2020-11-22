@@ -34,7 +34,7 @@
     "prettier": "^2.0.5"
   },
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.0",
     "hue-bridge-discovery": "^1.1.2",
     "invariant": "^2.2.2"
   },
