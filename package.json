@@ -27,14 +27,14 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.12.11",
     "babel-eslint": "^10.0.1",
-    "eslint": "^7.15.0",
-    "eslint-config-prettier": "^7.0.0",
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.0",
     "jest": "^26.0.1",
     "prettier": "^2.0.5"
   },
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "hue-bridge-discovery": "^1.1.2",
     "invariant": "^2.2.2"
   },
