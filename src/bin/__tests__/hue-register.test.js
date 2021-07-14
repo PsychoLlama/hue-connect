@@ -2,7 +2,7 @@
 import discover from '../../Search';
 import '../hue-register';
 
-jest.useFakeTimers();
+jest.useFakeTimers('legacy');
 jest.mock('../../Search', () => {
   const mock = jest.genMockFromModule('../../Search');
   mock.default.mockReturnValue({
