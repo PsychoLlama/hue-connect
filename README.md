@@ -4,6 +4,11 @@
 [![GitHub workflow](https://img.shields.io/github/workflow/status/PsychoLlama/hue-connect/Continuous%20Integration/master?style=flat-square)](https://github.com/PsychoLlama/hue-connect/actions?query=workflow%3A%22Continuous+Integration%22)
 [![npm](https://img.shields.io/npm/v/hue-connect.svg?style=flat-square)](https://www.npmjs.com/package/hue-connect)
 
+## Project Status
+:no_entry: UNMAINTAINED
+
+This library desperately needs a makeover, but 3rd party apps and integrations became good enough that I no longer see value in maintaining my own tooling.
+
 ## Why
 Because bridge discovery is weird and so is attaining an API token.
 
